@@ -9,20 +9,19 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class DevAffichage extends JFrame{
-
-    JTextArea tArea = new JTextArea();
-    JPanel mainPanel = new JPanel();
     DevModele mainModel;
     DevControle mainControl;
+    JPanel mainPanel = new JPanel();
+    JTextArea tArea = new JTextArea();
+    JTextArea cArea = new JTextArea();
+    JButton corrButt = new JButton("Corriger");
     JLabel labelDictio = new JLabel("Dictionnaire");
     JLabel labelMots = new JLabel("Fichier Mots");
 
+
     public void doTheStuff()
     {
-        //mainFrame.add(mainPanel);
-        this.setBackground(Color.red);
         this.setSize(700, 700);
-
 
         JMenu menuF = new JMenu("Mots");
         JMenuItem menuFimpo = new JMenuItem("Importer Mots");
@@ -44,20 +43,32 @@ public class DevAffichage extends JFrame{
 
        this.setJMenuBar(menuBar);
 
-        //create the text area
+        //create the text area for the user's words
         tArea.setRows(20);
         tArea.setColumns(15);
         tArea.addMouseListener(mainControl);
 
+        //create the text are for the correction
+        cArea.setRows(5);
+        cArea.setColumns(15);
+        cArea.addMouseListener(mainControl);
+
+        //create the button for the correction
+        corrButt.addActionListener(mainControl);
+
+
         //create and add objects to the panel
-        mainPanel.add(tArea);
+        mainPanel.setBackground(Color.black);
         mainPanel.add(labelDictio);
         mainPanel.add(labelMots);
-
+        mainPanel.add(tArea);
+        mainPanel.add(corrButt);
+        mainPanel.add(cArea);
         this.add(mainPanel);
         this.setVisible(true);
         //testzone
     }
+
 
 
     public static void main(String[] args)
@@ -67,8 +78,6 @@ public class DevAffichage extends JFrame{
         testAffi.mainModel = new DevModele(testAffi);
         testAffi.mainControl = new DevControle(testAffi, testAffi.mainModel);
         testAffi.doTheStuff();
-        testAffi.tArea.setText("cunt");
-
     }
 
 

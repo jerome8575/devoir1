@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class DevControle implements MouseListener, ActionListener{
-
     DevAffichage monAffichage;
     DevModele monModel;
 
@@ -16,27 +15,20 @@ public class DevControle implements MouseListener, ActionListener{
         monModel = y;
     }
 
-
-
     public void mouseClicked(MouseEvent e) {
-        System.out.print("in");
-        monModel.redHightligher();
     }
 
     public void mousePressed(MouseEvent e) {
 
     }
 
-
     public void mouseReleased(MouseEvent e) {
 
     }
 
-
     public void mouseEntered(MouseEvent e) {
 
     }
-
 
     public void mouseExited(MouseEvent e) {
 
@@ -46,6 +38,7 @@ public class DevControle implements MouseListener, ActionListener{
         if (e.getActionCommand() == "Importer Mots")
         {
             monModel.ouvrirFichier("importMots");
+            monModel.dictioImport.checkIfIn(monModel.motsImport.arToStr);
         }
         else if(e.getActionCommand() == "Importer Dictionnaire")
         {

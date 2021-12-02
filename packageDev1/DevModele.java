@@ -153,6 +153,7 @@ public class DevModele extends JFrame{
             motsImport.arToStr.add(tempArr[i]);
             motsImport.hashtable.put(i, tempArr[i]);
         }
+        monAffichage.tArea.setText(motsImport.arrLiToStr());
         motsImport.toArrays();
         motsImport.carretInd();
         

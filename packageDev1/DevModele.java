@@ -144,7 +144,7 @@ public class DevModele extends JFrame{
 
     public void corrigerText(String text){
         //update mots
-        String[] tempArr = monAffichage.tArea.getText().split("\n");
+        String[] tempArr = monAffichage.tArea.getText().split("\\W");
         motsImport.arToStr.clear();
         motsImport.hashtable.clear();
         motsImport.arrayTab.clear();

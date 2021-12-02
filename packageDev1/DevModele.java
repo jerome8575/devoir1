@@ -143,6 +143,21 @@ public class DevModele extends JFrame{
     }
 
     public void corrigerText(String text){
+        //update mots
+        String[] tempArr = monAffichage.tArea.getText().split("\n");
+        motsImport.arToStr.clear();
+        motsImport.hashtable.clear();
+        motsImport.arrayTab.clear();
+        for (int i = 0; i<tempArr.length; i++)
+        {
+            motsImport.arToStr.add(tempArr[i]);
+            motsImport.hashtable.put(i, tempArr[i]);
+        }
+        motsImport.toArrays();
+        motsImport.carretInd();
+        
+        
+        
         // corriger text
         System.out.println("Corriger text: " + text);
         Parser parser = new Parser();
